@@ -16,7 +16,6 @@ notes = {
 print("--- 1.3. NOTES DE CHAQUE ÉTUDIANT ---")
 for prenom in etudiants:
     print(f"{prenom} : {notes[prenom][0]}, {notes[prenom][1]}, {notes[prenom][2]}")
-print("\n" + "-" * 50 + "\n")
 
 
 partie 2
@@ -50,7 +49,6 @@ for prenom in etudiants:
     moy_etudiant = moyenne(notes[prenom])
     ment = mention(moy_etudiant)
     print(f"{prenom} — Notes : {notes[prenom][0]}, {notes[prenom][1]}, {notes[prenom][2]} — Moyenne : {moy_etudiant:.2f} — Mention : {ment}")
-print("\n" + "-" * 50 + "\n")
 
 
 # 2.4. Fonction pour trouver le meilleur étudiant
@@ -70,7 +68,6 @@ def meilleur_etudiant(dico_notes):
 nom_top, moy_top = meilleur_etudiant(notes)
 print("--- 2.4. LE MEILLEUR ÉTUDIANT ---")
 print(f"Le meilleur étudiant est {nom_top} avec une moyenne de {moy_top:.2f}.")
-print("\n" + "-" * 50 + "\n")
 
 
 partie 3
@@ -115,7 +112,6 @@ for prenom in etudiants:
 print("\nRépartition des mentions :")
 for ment, count in repartition.items():
     print(f"- {ment} : {count} étudiant(s)")
-print("\n" + "-" * 50 + "\n")
 
 
 partie 4
@@ -124,7 +120,6 @@ def enregistrer_resultats(nom_fichier):
     """Enregistre tous les résultats de la classe dans un fichier texte."""
     with open(nom_fichier, "w", encoding="utf-8") as f:
         f.write("RESULTATS DE LA CLASSE\n")
-        f.write("=" * 30 + "\n\n")
         
         for prenom in etudiants:
             n = notes[prenom]
@@ -135,7 +130,6 @@ def enregistrer_resultats(nom_fichier):
             f.write(f"Notes : {n[0]}, {n[1]}, {n[2]}\n")
             f.write(f"Moyenne : {moy:.2f}\n")
             f.write(f"Mention : {ment}\n")
-            f.write("-" * 20 + "\n")
             
         f.write(f"\nMoyenne générale : {moyenne_generale:.2f}\n")
         f.write(f"Étudiants ayant validé : {valides}/{len(etudiants)}\n")
@@ -144,7 +138,6 @@ def enregistrer_resultats(nom_fichier):
 enregistrer_resultats("resultats.txt")
 print("--- 4. FICHIER ---")
 print("Le fichier 'resultats.txt' a été créé et mis à jour avec succès !\n")
-print("-" * 50 + "\n")
 
 
 partie 5
@@ -173,4 +166,3 @@ def recherche_etudiant(nom_cherche):
 print("--- 5. RECHERCHE D'UN ÉTUDIANT ---")
 recherche_etudiant("samba")
 recherche_etudiant("Paul")  # Test avec un étudiant inexistant
-print("\n" + "-" * 50 + "\n")
