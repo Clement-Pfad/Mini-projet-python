@@ -1,5 +1,7 @@
-etudiants = ["Samba", "Evan", "Princia Céleste", "Noâm",  "Jean", "Alexandre", "Clément"]
-    
+partie 1
+etudiants = ["Samba", "Evan", "Princia Céleste", "Noâm", "Jean", "Alexandre", "Clément"]
+
+# 1.2. Enregistrement des notes dans un dictionnaire
 notes = {
     "Samba": [12, 15, 14],
     "Evan": [16, 14, 17],
@@ -8,9 +10,16 @@ notes = {
     "Jean": [14, 13, 15],
     "Alexandre": [18, 17, 19],
     "Clément": [9, 11, 10]
+}
 
+# 1.3. Affichage des notes de chaque étudiant à l'aide d'une boucle
+print("--- 1.3. NOTES DE CHAQUE ÉTUDIANT ---")
 for prenom in etudiants:
     print(f"{prenom} : {notes[prenom][0]}, {notes[prenom][1]}, {notes[prenom][2]}")
+print("\n" + "-" * 50 + "\n")
+
+
+partie 2
 
 # 2.1. Fonction pour calculer la moyenne d'une liste de notes
 def moyenne(liste_notes):
@@ -22,7 +31,7 @@ def moyenne(liste_notes):
 
 # 2.3. Fonction pour attribuer une mention selon la moyenne
 def mention(moy):
-    """Retourne la mention correspondante en fonction de la moyenne obtenue."""
+    """Retourne la mention correspondante en fonction de la moyenne."""
     if moy >= 16:
         return "Excellent"
     elif moy >= 14:
@@ -35,19 +44,19 @@ def mention(moy):
         return "Insuffisant"
 
 
+# 2.2 & 2.3. Affichage des résultats individuels et mentions
 print("--- 2.2 & 2.3. RÉSULTATS INDIVIDUELS ET MENTIONS ---")
 for prenom in etudiants:
     moy_etudiant = moyenne(notes[prenom])
     ment = mention(moy_etudiant)
-    # Affichage formaté avec 2 chiffres après la virgule (f"{variable:.2f}")
     print(f"{prenom} — Notes : {notes[prenom][0]}, {notes[prenom][1]}, {notes[prenom][2]} — Moyenne : {moy_etudiant:.2f} — Mention : {ment}")
-print("\n" + "-"*50 + "\n")
+print("\n" + "-" * 50 + "\n")
 
 
 # 2.4. Fonction pour trouver le meilleur étudiant
 def meilleur_etudiant(dico_notes):
-    """Parcourt le dictionnaire pour trouver l'étudiant ayant la meilleure moyenne."""
-     meilleur_nom = ""
+    """Parcourt le dictionnaire pour trouver l'étudiant avec la meilleure moyenne."""
+    meilleur_nom = ""
     meilleure_moy = -1
     
     for prenom, liste_n in dico_notes.items():
@@ -61,8 +70,10 @@ def meilleur_etudiant(dico_notes):
 nom_top, moy_top = meilleur_etudiant(notes)
 print("--- 2.4. LE MEILLEUR ÉTUDIANT ---")
 print(f"Le meilleur étudiant est {nom_top} avec une moyenne de {moy_top:.2f}.")
-print("\n" + "-"*50 + "\n")
+print("\n" + "-" * 50 + "\n")
 
+
+partie 3
 
 # 3.1. Calcul de la moyenne générale de la classe
 somme_moyennes = 0
@@ -104,14 +115,16 @@ for prenom in etudiants:
 print("\nRépartition des mentions :")
 for ment, count in repartition.items():
     print(f"- {ment} : {count} étudiant(s)")
-print("\n" + "-"*50 + "\n")
+print("\n" + "-" * 50 + "\n")
 
+
+partie 4
 
 def enregistrer_resultats(nom_fichier):
     """Enregistre tous les résultats de la classe dans un fichier texte."""
     with open(nom_fichier, "w", encoding="utf-8") as f:
         f.write("RESULTATS DE LA CLASSE\n")
-        f.write("="*30 + "\n\n")
+        f.write("=" * 30 + "\n\n")
         
         for prenom in etudiants:
             n = notes[prenom]
@@ -127,16 +140,17 @@ def enregistrer_resultats(nom_fichier):
         f.write(f"\nMoyenne générale : {moyenne_generale:.2f}\n")
         f.write(f"Étudiants ayant validé : {valides}/{len(etudiants)}\n")
 
-# Appel de la fonction d'enregistrement
+# Appel de la fonction d'enregistrement avec la structure "with"`
 enregistrer_resultats("resultats.txt")
 print("--- 4. FICHIER ---")
 print("Le fichier 'resultats.txt' a été créé et mis à jour avec succès !\n")
 print("-" * 50 + "\n")
 
 
+partie 5
+
 def recherche_etudiant(nom_cherche):
-    """Recherche un étudiant par son prénom (insensible à la casse) et affiche ses résultats."""
-    # On met tout en minuscules pour faciliter la recherche, en faisant de même pour les clés du dictionnaire
+    """Recherche un étudiant par son prénom et affiche ses résultats."""
     nom_cherche_clean = nom_cherche.strip().lower()
     trouve = False
     
@@ -155,8 +169,8 @@ def recherche_etudiant(nom_cherche):
     if not trouve:
         print(f"\nErreur : Aucun étudiant ne porte le prénom '{nom_cherche}'.")
 
-# Test de la recherche
+# Tests de la fonction de recherche
 print("--- 5. RECHERCHE D'UN ÉTUDIANT ---")
 recherche_etudiant("samba")
-recherche_etudiant("Paul") # Test d'un étudiant inexistant
-print("\n" + "-"*50 + "\n")
+recherche_etudiant("Paul")  # Test avec un étudiant inexistant
+print("\n" + "-" * 50 + "\n")
